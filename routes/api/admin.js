@@ -66,7 +66,6 @@ router.post('/login', auth.optional, (req, res) => {
 router.get('/dashboard', auth.required, (req, res) => {
     var { payload: { id } } = req
     //  ---NOT WORKING---
-    var dashboard = {}
     Admin.findOne({ id }).then((admin) => {
         User.find({}).then(users => {
             return res.json({ admin, users })

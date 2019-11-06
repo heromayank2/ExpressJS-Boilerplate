@@ -8,3 +8,70 @@ Content-Type: application/json
         "password":"12345678"
     }
 }
+
+###
+POST http://localhost:3000/user/login/
+{
+    "user":{
+        "email":"heromayank4@gmail.com",
+        "password":"12345678"
+    }
+}
+
+###
+GET http://localhost:3000/user/profile/
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+
+# Package
+###
+POST http://localhost:3000/package/
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+Content-Type: application/json
+
+{
+    "package":{
+        "package_id":"1234",
+        "facilities_id":"1234"
+    },
+    "facilities":{
+        "package_id":"1234",
+        "facilities_id":"1234"
+    }
+}
+
+###
+DELETE http://localhost:3000/package/12345
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+
+###
+GET http://localhost:3000/package/
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+
+#Admin
+###
+POST http://localhost:3000/admin/
+Content-Type: application/json
+{
+    "admin":{
+        "id":"123",
+        "password":"12345678"
+    }
+}
+
+###
+POST http://localhost:3000/admin/login/
+Content-Type: application/json
+{
+    "admin":{
+        "id":"123",
+        "password":"12345678"
+    }
+}
+
+###
+GET http://localhost:3000/admin/dashboard/
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+
+###
+GET http://localhost:3000/admin/current/
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s

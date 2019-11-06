@@ -6,7 +6,7 @@ const Package = require('../../models/Package')
 const passport = require('passport');
 var auth = require('../auth')
 
-router.post('/package', auth.required, (req, res) => {
+router.post('/', auth.required, (req, res) => {
     const { body: { package, facilities } } = req
     const finalPackage = new Package(package);
     const finalFacilities = new Facilities(facilities)
@@ -19,7 +19,7 @@ router.post('/package', auth.required, (req, res) => {
 
 })
 
-router.delete('/package/:pid', auth.required, (req, res) => {
+router.delete('/:pid', auth.required, (req, res) => {
     const { payload: { id, type } } = req
     var pid = req.params.pid
     if (type == "admin") {
@@ -51,7 +51,7 @@ router.delete('/package/:pid', auth.required, (req, res) => {
     }
 })
 
-router.put('/package/:pid', auth.required, (req, res) => {
+router.put('/:pid', auth.required, (req, res) => {
     const { payload: { id, type } } = req
     var pid = req.params.pid
 
@@ -83,7 +83,7 @@ router.put('/package/:pid', auth.required, (req, res) => {
     }
 })
 
-router.get('/package', auth.required, (req, res) => {
+router.get('/', auth.required, (req, res) => {
     const { payload: { id } } = req
     return User.findById(id).then((user) => {
         var package_id = user.package_id

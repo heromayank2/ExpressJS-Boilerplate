@@ -13,10 +13,10 @@ app.use(BodyParser.json());
 app.use(session({ secret: 'secret', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
 
 // MongoDB Configuration 
-const db = 'mongodb+srv://sanatan:sanatan@cluster0-j6gau.mongodb.net/test?retryWrites=true&w=majority'
+const db = 'mongodb+srv://mayank:mayank@cluster0-u7ais.gcp.mongodb.net/test?retryWrites=true&w=majority'
 mongoose
     .connect(
-        db, { useNewUrlParser: true }
+        db, { useNewUrlParser: true, useUnifiedTopology: true }
     )
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
