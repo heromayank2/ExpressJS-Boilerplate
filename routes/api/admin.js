@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const User = require('../../models/Admin')
+const Admin = require('../../models/Admin')
+const User = require('../../models/User')
 const Package = require('../../models/Package')
 const passport = require('passport');
 var auth = require('../auth')
 
-router.get('/', auth.optional, (req, res) => {
+router.post('/', auth.optional, (req, res) => {
     const { body: { admin } } = req;
-    if (!admin.aid) {
+    if (!admin.id) {
         return res.status(422).json({
             errors: {
                 id: 'is required',
@@ -32,7 +33,7 @@ router.get('/', auth.optional, (req, res) => {
 router.post('/login', auth.optional, (req, res) => {
     const { body: { admin } } = req;
 
-    if (!admin.aid) {
+    if (!admin.id) {
         return res.status(422).json({
             errors: {
                 id: 'is required',
@@ -47,8 +48,8 @@ router.post('/login', auth.optional, (req, res) => {
             },
         });
     }
-    Admin.findOne({ aid: admin.aid }).then((dbAdmin) => {
-        console.log("Creating new admin..")
+    Admin.findOne({ id: admin.id }).then((dbAdmin) => {
+
         if (dbAdmin) {
             if (dbAdmin.validatePassword(admin.password)) {
                 const admin = dbAdmin;

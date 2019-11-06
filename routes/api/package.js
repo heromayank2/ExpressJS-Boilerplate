@@ -23,28 +23,30 @@ router.delete('/:pid', auth.required, (req, res) => {
     const { payload: { id, type } } = req
     var pid = req.params.pid
     if (type == "admin") {
-        return Package.deleteById({ package_id: pid })
+        return Package.deleteOne({ package_id: pid })
             .then((package) => {
-                Facilities.deleteById({ package_id: pid }).then(() => {
-                    return req.send("Deleted Package With ID: " + package.package_id)
+                Facilities.deleteOne({ package_id: pid }).then(() => {
+                    return res.send("Deleted Package With ID: " + package.package_id)
                 })
 
             }).catch(err => {
-                return req.sendStatus(404)
+                return res.sendStatus(404)
             })
     } else {
         return User.findById(id).then((user) => {
+            console.log(user.package_id)
+            console.log(pid)
             if (user.package_id == pid) {
-                return Package.deleteById({ package_id: pid })
+                return Package.deleteOne({ package_id: pid })
                     .then((package) => {
-                        Facilities.deleteById({ package_id: pid }).then(() => {
-                            return req.send("Deleted Package With ID: " + package.package_id)
+                        Facilities.deleteOne({ package_id: pid }).then(() => {
+                            return res.send("Deleted Package With ID: " + package.package_id)
                         })
                     }).catch(err => {
-                        return req.sendStatus(404)
+                        return res.sendStatus(404)
                     })
             } else {
-                return res.sendStatus(403)
+                return res.sendStatus(404)
             }
 
         })
@@ -87,15 +89,20 @@ router.get('/', auth.required, (req, res) => {
     const { payload: { id } } = req
     return User.findById(id).then((user) => {
         var package_id = user.package_id
-        Package.findById(package_id).then((package) => {
-            if (package) {
-                Facilities.findById({ package_id }).then((facilities) => {
-                    return res.json({ package: package, facilities })
-                })
-            } else {
-                return res.sendStatus(404)
-            }
-        })
+        if (package_id) {
+            Package.findById(package_id).then((package) => {
+                if (package) {
+                    Facilities.findById({ package_id }).then((facilities) => {
+                        return res.json({ package: package, facilities })
+                    })
+                } else {
+                    return res.sendStatus(404)
+                }
+            })
+        } else {
+            res.sendStatus(404)
+        }
+
     })
 
 })

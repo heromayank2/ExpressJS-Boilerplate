@@ -13,7 +13,7 @@ app.use(BodyParser.json());
 app.use(session({ secret: 'secret', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
 
 // MongoDB Configuration 
-const db = 'mongodb+srv://mayank:mayank@cluster0-u7ais.gcp.mongodb.net/test?retryWrites=true&w=majority'
+const db = 'mongodb://127.0.0.1:27017/radissondubai'
 mongoose
     .connect(
         db, { useNewUrlParser: true, useUnifiedTopology: true }

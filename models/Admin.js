@@ -3,10 +3,7 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
 var adminSchema = new mongoose.Schema({
-    aid: {
-        type: Number,
-        required: true
-    },
+    id: String,
     hash: String,
     salt: String,
     changelog: Array
@@ -30,7 +27,7 @@ adminSchema.methods.generateJWT = function() {
 
     return jwt.sign({
         id: this._id,
-        aid: this.aid,
+        id: this.id,
         type: "admin",
         exp: parseInt(expirationDate.getTime() / 1000, 10),
     }, 'secret');
@@ -39,7 +36,7 @@ adminSchema.methods.generateJWT = function() {
 adminSchema.methods.toAuthJSON = function() {
     return {
         _id: this._id,
-        aid: this.aid,
+        id: this.id,
         type: "admin",
         token: this.generateJWT()
     };

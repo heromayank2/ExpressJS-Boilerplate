@@ -4,56 +4,60 @@ Content-Type: application/json
 
 {
     "user":{
-        "email":"heromayank4@gmail.com",
-        "password":"12345678"
+        "email":"heromayank6@gmail.com",
+        "password":"12345678",
+        "package_id":"123456"
     }
 }
 
 ###
 POST http://localhost:3000/user/login/
+Content-Type: application/json
+
 {
     "user":{
-        "email":"heromayank4@gmail.com",
+        "email":"heromayank6@gmail.com",
         "password":"12345678"
     }
 }
 
 ###
 GET http://localhost:3000/user/profile/
-authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms2QGdtYWlsLmNvbSIsImlkIjoiNWRjMzJmYmJiNmNiMGI0YWQ0MmM0MjRhIiwidHlwZSI6InVzZXIiLCJleHAiOjE1NzgyNTczMjksImlhdCI6MTU3MzA3MzMyOX0.79yBjZufR9J7Fq4iKYzLt1TsL4BbgS_30uwbCXvkm5M
 
 # Package
 ###
 POST http://localhost:3000/package/
-authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms2QGdtYWlsLmNvbSIsImlkIjoiNWRjMzJmYmJiNmNiMGI0YWQ0MmM0MjRhIiwidHlwZSI6InVzZXIiLCJleHAiOjE1NzgyNTc2MzksImlhdCI6MTU3MzA3MzYzOX0.UpPnBDxXvStohw7uk2d4sdjTb2dpAFXsx4hxt0qqH3M
 Content-Type: application/json
 
 {
     "package":{
-        "package_id":"1234",
-        "facilities_id":"1234"
+        "package_id":"123456",
+        "facilities_id":"123456"
     },
     "facilities":{
-        "package_id":"1234",
-        "facilities_id":"1234"
+        "package_id":"123456",
+        "facilities_id":"123456"
     }
 }
 
 ###
-DELETE http://localhost:3000/package/12345
-authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+DELETE http://localhost:3000/package/123456
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms2QGdtYWlsLmNvbSIsImlkIjoiNWRjMzMxOWZmYjgxYzMzZjY0MjNlNGU1IiwidHlwZSI6InVzZXIiLCJleHAiOjE1NzgyNTc5NDEsImlhdCI6MTU3MzA3Mzk0MX0.0ldDEObNB5i1vY0wFKF2ZSaFVfUR6xYGUB7hCgaFfSs
 
 ###
 GET http://localhost:3000/package/
-authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms2QGdtYWlsLmNvbSIsImlkIjoiNWRjMzMxOWZmYjgxYzMzZjY0MjNlNGU1IiwidHlwZSI6InVzZXIiLCJleHAiOjE1NzgyNTc5NDEsImlhdCI6MTU3MzA3Mzk0MX0.0ldDEObNB5i1vY0wFKF2ZSaFVfUR6xYGUB7hCgaFfSs
 
 #Admin
 ###
 POST http://localhost:3000/admin/
 Content-Type: application/json
+
 {
     "admin":{
-        "id":"123",
+        "id":"124",
         "password":"12345678"
     }
 }
@@ -61,6 +65,7 @@ Content-Type: application/json
 ###
 POST http://localhost:3000/admin/login/
 Content-Type: application/json
+
 {
     "admin":{
         "id":"123",
@@ -70,7 +75,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/admin/dashboard/
-authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imhlcm9tYXlhbms0QGdtYWlsLmNvbSIsImlkIjoiNWRiOTcyNmRjN2FkMGQ1NTNjMzIxNTZjIiwidHlwZSI6InVzZXIiLCJleHAiOjE1Nzc2MTkxMjksImlhdCI6MTU3MjQzNTEyOX0.SvqdROx1LJBQJlRshE0_LklKTFlaV_-bkB-F7RQQW1s
+authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMyIsInR5cGUiOiJhZG1pbiIsImV4cCI6MTU3ODI1ODY4NywiaWF0IjoxNTczMDc0Njg3fQ.X2rOFtB5QEcRKc62-J7m3UDfWAFlvP0D6MS0crTYetc
 
 ###
 GET http://localhost:3000/admin/current/

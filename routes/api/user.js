@@ -5,6 +5,8 @@ const Package = require('../../models/Package')
 const passport = require('passport');
 var auth = require('../auth')
 
+// Tested : Ok
+
 router.post('/', auth.optional, (req, res, next) => {
     const { body: { user } } = req;
 
@@ -31,6 +33,8 @@ router.post('/', auth.optional, (req, res, next) => {
     return finalUser.save()
         .then(() => res.json({ user: finalUser.toAuthJSON() }));
 });
+
+// Tested : NO
 
 router.post('/login', auth.optional, (req, res, next) => {
     const { body: { user } } = req;
@@ -66,6 +70,8 @@ router.post('/login', auth.optional, (req, res, next) => {
     })(req, res, next);
 });
 
+// Tested :OK
+
 router.get('/profile', auth.required, (req, res, next) => {
     const { payload: { id } } = req;
 
@@ -77,12 +83,12 @@ router.get('/profile', auth.required, (req, res, next) => {
                 if (user.package_id) {
                     Package.findById({ package_id: user.package_id }).then((package) => {
                         if (!package) {
-                            return res.json({ user: user.toAuthJSON(), package });
+                            return res.json({ user, package });
                         }
-                        return res.json({ user: user.toAuthJSON() });
+                        return res.json({ user });
                     })
                 }
-                return res.json({ user: user.toAuthJSON() });
+                return res.json({ user });
             }
         });
 });
