@@ -5,8 +5,6 @@ const Package = require('../../models/Package')
 const passport = require('passport');
 var auth = require('../auth')
 
-// --ALL CHECKED HERE--
-
 router.post('/', auth.optional, (req, res, next) => {
     const { body: { user } } = req;
 

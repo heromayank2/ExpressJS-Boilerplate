@@ -13,7 +13,14 @@ app.use(BodyParser.json());
 app.use(session({ secret: 'secret', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
 
 // MongoDB Configuration 
-mongoose.connect(process.env.DB_KEY);
+const db = 'mongodb+srv://sanatan:sanatan@cluster0-j6gau.mongodb.net/test?retryWrites=true&w=majority'
+mongoose
+    .connect(
+        db, { useNewUrlParser: true }
+    )
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+
 mongoose.set('debug', true);
 
 // Setting up routes

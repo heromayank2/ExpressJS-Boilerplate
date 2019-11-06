@@ -16,4 +16,4 @@ var facilitesSchema = mongoose.Schema({
     snooker: Boolean
 })
 
-module.exports = mongoose.model({ "Facility": facilitesSchema })
+module.exports = mongoose.model("Facility", facilitesSchema)
