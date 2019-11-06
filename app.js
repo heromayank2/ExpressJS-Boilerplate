@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const BodyParser = require('body-parser')
 const session = require('express-session');
+var cors = require('cors');
 require('dotenv').config();
 
 const app = express();
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(BodyParser.json());
+app.use(cors());
 app.use(session({ secret: 'secret', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
 
 // MongoDB Configuration 
