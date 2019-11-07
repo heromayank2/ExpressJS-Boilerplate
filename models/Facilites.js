@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 
 var facilitesSchema = mongoose.Schema({
-    user_id: String,
     facilites_id: String,
     package_id: String,
     package_type: String,
+    guests: Number,
+    rooms: Number,
     spa: Boolean,
     swimming: Boolean,
     RoomType: String,
@@ -15,7 +16,7 @@ var facilitesSchema = mongoose.Schema({
     shooting: Boolean,
     golf: Boolean,
     trip: Boolean,
-    snooker: Boolean
+    pool: Boolean
 })
 
 module.exports = mongoose.model("Facility", facilitesSchema)

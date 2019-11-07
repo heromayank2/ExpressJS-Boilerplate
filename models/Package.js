@@ -9,8 +9,8 @@ var packageSchema = mongoose.Schema({
         type: String,
         default: Date.now()
     },
-    user_id: String,
     price: Number,
+    start_date: Date,
     expiry_date: Date
 })
 

@@ -6,12 +6,16 @@ const Package = require('../../models/Package')
 const passport = require('passport');
 var auth = require('../auth')
 
+
+// TODO: Add Package id in User too 
 router.post('/', auth.required, (req, res) => {
+    const { payload: { id, type } } = req
     const { body: { package, facilities } } = req
     const finalPackage = new Package(package);
     const finalFacilities = new Facilities(facilities)
     return finalPackage.save().then((finalPackage) => {
         finalFacilities.save().then((finalFacilities) => {
+            // User.updateById(id)
             return res.json({ package: finalPackage, facilities: finalFacilities })
 
         })
