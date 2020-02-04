@@ -1,7 +1,7 @@
 {
-    "name": "chai-sutta",
+    "name": "nari-web-server",
     "version": "1.0.0",
-    "description": "A web server for Hack-24 app",
+    "description": "A web server for nari app",
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",

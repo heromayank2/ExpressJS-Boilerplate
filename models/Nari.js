@@ -2,35 +2,40 @@ const mongoose = require("mongoose");
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
-var userSchema = new mongoose.Schema({
-    user_id: String,
-    username: String,
-    email: String,
+var nariSchema = new mongoose.Schema({
+    name: String,
     age: Number,
     hash: String,
     salt: String,
-    name: String,
+    email: String,
     phone: Number,
-    package_id: String,
-    gender: String,
-    photoUrl: String,
-    verified: Boolean,
-    last_login: Date,
-    previous_purchases: Array
+    close_contacts:Array,
+    last_loggedin: Date,
+    last_location:{
+        latitude:String,
+        longitude:String
+        // recorded_on:Date.now()
+    },
+    picture_url:String,
+    points:Number,
+    level:Number,
+    activity_count:Array,
+    dob:Date,
+    articles:Array
 });
 
-userSchema.methods.setPassword = function(password) {
+nariSchema.methods.setPassword = function(password) {
     this.salt = crypto.randomBytes(16).toString('hex');
     this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
 };
 
-userSchema.methods.validatePassword = function(password) {
+nariSchema.methods.validatePassword = function(password) {
     const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
     return this.hash === hash;
 };
 
 
-userSchema.methods.generateJWT = function() {
+nariSchema.methods.generateJWT = function() {
     const today = new Date();
     const expirationDate = new Date(today);
     expirationDate.setDate(today.getDate() + 60);
@@ -43,7 +48,7 @@ userSchema.methods.generateJWT = function() {
     }, 'secret');
 }
 
-userSchema.methods.toAuthJSON = function() {
+nariSchema.methods.toAuthJSON = function() {
     return {
         _id: this._id,
         email: this.email,
@@ -52,4 +57,4 @@ userSchema.methods.toAuthJSON = function() {
     };
 };
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Nari", nariSchema);

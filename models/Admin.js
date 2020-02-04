@@ -5,8 +5,7 @@ const jwt = require('jsonwebtoken');
 var adminSchema = new mongoose.Schema({
     id: String,
     hash: String,
-    salt: String,
-    changelog: Array
+    salt: String
 });
 
 adminSchema.methods.setPassword = function(password) {
